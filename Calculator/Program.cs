@@ -20,10 +20,10 @@ namespace Calculator
 
                 if(calcType == "+" || calcType == "-" || calcType == "*" || calcType == "/")
                 {
-                    Console.WriteLine("Your sign is: " + calcType);
+                    Console.WriteLine("Your selected sign is: " + calcType);
                     break;
                 }
-                Console.WriteLine("You entered invalid input. Please enter of of these signs! (+, -, * or /) ");
+                Console.Error.WriteLine("You entered invalid input. Please enter one of these signs: (+, -, * or /) !");
             }
 
             while(true)
@@ -31,16 +31,15 @@ namespace Calculator
                 Console.WriteLine("Please write the first number. (Between -1000.0 and 1000.0 for test reasons.)");
                 firstNumberString = Console.ReadLine();
 
-                if(double.TryParse(firstNumberString, out firstNumber)) {
+                if(double.TryParse(firstNumberString, out firstNumber))
+                {
                     if(firstNumber >= -1000 && firstNumber <= 1000)
                     {
                         Console.WriteLine("Your first number is: " + firstNumber);
                         break;
                     }
                 }
-                
-                Console.WriteLine("You entered invalid input. Please enter a number! ");
-
+                Console.Error.WriteLine("You entered invalid input. Please enter a valid number! ");
             }
 
             while(true)
@@ -56,9 +55,7 @@ namespace Calculator
                         break;
                     }
                 }
-
-                Console.WriteLine("You entered invalid input. Please enter a number! ");
-
+                Console.Error.WriteLine("You entered invalid input. Please enter a valid number! ");
             }
 
             switch(calcType)
@@ -67,7 +64,7 @@ namespace Calculator
                     Console.WriteLine("The result is:" + AddNumbers(firstNumber, secondNumber));
                     break;
                 case "-":
-                    Console.WriteLine("The result is:" + SubstractNumbers(firstNumber, secondNumber));
+                    Console.WriteLine("The result is:" + SubtractNumbers(firstNumber, secondNumber));
                     break;
                 case "*":
                     Console.WriteLine("The result is:" + MultiplyNumbers(firstNumber, secondNumber));
@@ -109,7 +106,7 @@ namespace Calculator
             return num1 + num2;
         }
 
-        public static double SubstractNumbers(double num1, double num2)
+        public static double SubtractNumbers(double num1, double num2)
         {
             return num1 - num2;
         }
